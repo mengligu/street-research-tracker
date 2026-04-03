@@ -294,6 +294,108 @@
     font-size: 0.7rem;
   }
 
+  /* ── Macro Dashboard ─────────────────────────────────────────────────── */
+  .macro-dashboard {
+    padding: 0 48px 8px;
+  }
+  .macro-section {
+    margin-bottom: 4px;
+  }
+  .status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    border-radius: 20px;
+    padding: 3px 10px;
+    font-size: 0.63rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .status-badge.positive {
+    background: rgba(16,185,129,0.12);
+    border: 1px solid rgba(16,185,129,0.35);
+    color: #10b981;
+  }
+  .status-badge.negative {
+    background: rgba(239,68,68,0.12);
+    border: 1px solid rgba(239,68,68,0.35);
+    color: #ef4444;
+  }
+  .status-badge.mixed {
+    background: rgba(245,158,11,0.12);
+    border: 1px solid rgba(245,158,11,0.35);
+    color: #f59e0b;
+  }
+  .status-badge.positive::before { content: '▲'; margin-right: 2px; }
+  .status-badge.negative::before { content: '▼'; margin-right: 2px; }
+  .status-badge.mixed::before { content: '◆'; margin-right: 2px; }
+
+  .macro-themes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 14px;
+  }
+  .macro-regional-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 14px;
+  }
+  .macro-thematic-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    gap: 14px;
+  }
+  .macro-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 18px 20px;
+  }
+  .macro-card.theme-card {
+    border-top: 3px solid var(--accent);
+  }
+  .macro-card-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+  .macro-card-title {
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: var(--text);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    line-height: 1.3;
+  }
+  .macro-card-icon { font-size: 1rem; flex-shrink: 0; }
+  .macro-card-body {
+    font-size: 0.8rem;
+    color: #94a3b8;
+    line-height: 1.65;
+  }
+  .macro-card-body strong { color: var(--text); font-weight: 600; }
+  .macro-card-metrics {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    margin-top: 8px;
+  }
+  .region-label {
+    display: inline-block;
+    font-size: 0.6rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+    margin-bottom: 6px;
+    font-weight: 600;
+  }
+
   /* Footer */
   footer {
     text-align: center;
@@ -317,6 +419,386 @@
 <div class="central-thesis">
   <h2>Central Theme</h2>
   <p>The US/Israel–Iran conflict and <span>Hormuz Strait closure</span> have triggered the largest energy supply shock in history — disrupting 17.6mb/d of Persian Gulf oil flows, forcing global stagflation, and creating the most significant central bank policy divergence since 2022.</p>
+</div>
+
+<div class="macro-dashboard">
+
+  <!-- ── Overall Macro Conditions ───────────────────────────────────────── -->
+  <div class="macro-section">
+    <div class="section-label">Overall Macro Conditions</div>
+    <div class="macro-themes-grid">
+
+      <div class="macro-card theme-card" style="border-top-color:#ef4444">
+        <div class="macro-card-header">
+          <div class="macro-card-title"><span class="macro-card-icon">⚡</span>Energy Supply Shock</div>
+          <span class="status-badge negative">Negative</span>
+        </div>
+        <div class="macro-card-body">
+          The Hormuz Strait closure has removed <strong>17.6mb/d</strong> from global supply — the largest energy disruption in history. Brent averaging <strong>$110/bbl</strong> in March–April acts as a direct tax on every oil-importing economy, eroding corporate margins and real household incomes simultaneously.
+          <div class="macro-card-metrics">
+            <span class="data-pill down">17.6mb/d Disrupted</span>
+            <span class="data-pill down">$110/bbl Brent</span>
+            <span class="data-pill warn">IEA 400M bbl Release</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="macro-card theme-card" style="border-top-color:#ef4444">
+        <div class="macro-card-header">
+          <div class="macro-card-title"><span class="macro-card-icon">🔥</span>Stagflation Spiral</div>
+          <span class="status-badge negative">Negative</span>
+        </div>
+        <div class="macro-card-body">
+          Energy prices are simultaneously depressing growth and stoking inflation, producing a classic stagflationary trap. Global GDP forecasts have been slashed while headline CPI trajectories have been revised sharply higher across developed and emerging markets alike.
+          <div class="macro-card-metrics">
+            <span class="data-pill down">US GDP → 2.1%</span>
+            <span class="data-pill down">US CPI → 3.3–3.4%</span>
+            <span class="data-pill warn">Recession Risk 30%</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="macro-card theme-card" style="border-top-color:#f59e0b">
+        <div class="macro-card-header">
+          <div class="macro-card-title"><span class="macro-card-icon">🏛</span>Central Bank Divergence</div>
+          <span class="status-badge mixed">Mixed</span>
+        </div>
+        <div class="macro-card-body">
+          The Fed is holding rates and looking through the supply shock, while the ECB and BoE pivot hawkish with back-to-back hikes. The PBOC is pausing cuts entirely. This is the sharpest cross-regional policy divergence since 2022, creating significant FX and rates volatility.
+          <div class="macro-card-metrics">
+            <span class="data-pill">Fed on Hold → Sep 2026</span>
+            <span class="data-pill warn">ECB/BoE +25bp Apr+Jun</span>
+            <span class="data-pill">PBOC Cuts Dropped</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="macro-card theme-card" style="border-top-color:#10b981">
+        <div class="macro-card-header">
+          <div class="macro-card-title"><span class="macro-card-icon">💡</span>Tech & Defense Resilience</div>
+          <span class="status-badge positive">Positive</span>
+        </div>
+        <div class="macro-card-body">
+          Semiconductor demand and geopolitically-driven defense spending are providing a meaningful growth offset. Korea's chip exports surged <strong>+151.4% YoY</strong>. Physical AI, robotics, and defense hardware sectors are outperforming, attracting fresh capital even as broad equity sentiment weakens.
+          <div class="macro-card-metrics">
+            <span class="data-pill up">Korea Semis +151.4% YoY</span>
+            <span class="data-pill up">S&P 500 Target 7,600</span>
+            <span class="data-pill up">Defense: Underowned</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="macro-card theme-card" style="border-top-color:#ef4444">
+        <div class="macro-card-header">
+          <div class="macro-card-title"><span class="macro-card-icon">🌐</span>EM Stress & Capital Flight</div>
+          <span class="status-badge negative">Negative</span>
+        </div>
+        <div class="macro-card-body">
+          Oil-importing emerging markets face acute stagflation, current account deterioration, and FX depreciation pressure. India, Philippines, and Thailand are the most exposed. Capital is rotating toward safe havens (JPY, CHF, USD) and commodity exporters, leaving vulnerable EMs short of financing.
+          <div class="macro-card-metrics">
+            <span class="data-pill down">USD/INR → 97</span>
+            <span class="data-pill down">PHP Stagflation Risk</span>
+            <span class="data-pill warn">EM Spread Widening</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ── Thematic Sections ───────────────────────────────────────────────── -->
+  <div class="macro-section">
+    <div class="section-label">Thematic Analysis</div>
+    <div class="macro-thematic-grid">
+
+      <div class="macro-card">
+        <div class="macro-card-header">
+          <div class="macro-card-title"><span class="macro-card-icon">🔥</span>Inflation</div>
+          <span class="status-badge negative">Negative</span>
+        </div>
+        <div class="region-label">Executive Summary</div>
+        <div class="macro-card-body">
+          The oil price spike is transmitting rapidly into headline CPI globally. <strong>US headline CPI is tracking 3.3–3.4%</strong> for 2026, with 1-year inflation expectations jumping to 3.8% immediately post-conflict. Core PCE at 2.5% is stickier than hoped. The Euro area faces a <strong>+1.4pp upward revision</strong> to 2.8–3.1%, and Japan inflation has been revised up by 1.1pp. Emerging market inflation spikes are the most severe — Argentina (+4.9pp), Turkey (+3.7pp), and Korea CPI revised to 2.4–2.6%. The energy shock is acting as a broad-based, regressive tax, compressing real purchasing power across all income tiers. Relief hinges on a swift Hormuz reopening that remains uncertain.
+          <div class="macro-card-metrics">
+            <span class="data-pill down">US CPI 2026 → 3.3–3.4%</span>
+            <span class="data-pill down">Core PCE → 2.5%</span>
+            <span class="data-pill down">Euro CPI → 2.8–3.1%</span>
+            <span class="data-pill down">EM Inflation Spikes</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="macro-card">
+        <div class="macro-card-header">
+          <div class="macro-card-title"><span class="macro-card-icon">🏛</span>Central Bank Policy</div>
+          <span class="status-badge mixed">Mixed</span>
+        </div>
+        <div class="region-label">Executive Summary</div>
+        <div class="macro-card-body">
+          Policy is fragmenting along energy-exposure lines. The <strong>Fed is prioritizing growth</strong> under its dual mandate, delaying cuts to Sep/Dec 2026 with a terminal rate of 3.0–3.25% — the bar for hikes remains very high. Meanwhile, the <strong>ECB and BoE are pivoting hawkish</strong>, pricing in +25bp in April and +25bp in June to combat the energy-driven inflation surge. The RBA already hiked preemptively. The <strong>PBOC dropped its rate cut call entirely</strong>, opting for a 50bp RRR cut instead to provide liquidity without stoking additional currency depreciation. EM central banks (BSP, MAS) are also reassessing their easing timelines, shifting to hold or tighten stances.
+          <div class="macro-card-metrics">
+            <span class="data-pill">Fed Cuts → Sep/Dec 2026</span>
+            <span class="data-pill warn">ECB/BoE Hiking Cycle</span>
+            <span class="data-pill">PBOC 50bp RRR Cut</span>
+            <span class="data-pill warn">RBA Preemptive Hike</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="macro-card">
+        <div class="macro-card-header">
+          <div class="macro-card-title"><span class="macro-card-icon">🚢</span>Trade & Import/Export Flows</div>
+          <span class="status-badge negative">Negative</span>
+        </div>
+        <div class="region-label">Executive Summary</div>
+        <div class="macro-card-body">
+          Global trade is being severely disrupted. LNG and crude tankers are being re-routed around Africa, adding <strong>2–3 weeks to delivery times</strong> and materially lifting freight rates. The Hormuz closure has created a two-tiered crude market: Chinese and Indian tankers received conditional passage exceptions, giving them access to discounted Persian Gulf crude while the rest of the world sources at premium spot prices. Europe faces the most acute natural gas shortage. Asia's energy-importing nations (India, Philippines, Thailand) are rationing fuel. On the export side, high-tech nations (Korea, Taiwan) are cushioning their current accounts via semiconductor booms, while commodity exporters (Malaysia, Indonesia) are benefiting from elevated prices.
+          <div class="macro-card-metrics">
+            <span class="data-pill down">Tanker Re-route +2–3wks</span>
+            <span class="data-pill down">European Gas Shortage</span>
+            <span class="data-pill warn">Two-Tier Crude Market</span>
+            <span class="data-pill up">MYR / IDR Exporters ↑</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ── US & Europe Regional ──────────────────────────────────────────── -->
+  <div class="macro-section">
+    <div class="section-label">Regional Conditions — United States &amp; Europe</div>
+    <div class="macro-regional-grid">
+
+      <div class="macro-card">
+        <div class="macro-card-header">
+          <div class="macro-card-title"><span class="macro-card-icon">🇺🇸</span>United States</div>
+          <span class="status-badge mixed">Mixed</span>
+        </div>
+        <div class="region-label">Executive Summary</div>
+        <div class="macro-card-body">
+          The US economy is resilient but deteriorating at the margin. GDP growth revised down to <strong>2.1% (Q4/Q4)</strong> with recession probability rising to 30%. The labor market is softening — March NFP came in at +60–75K (underlying pace ~30K/month). A pronounced <strong>K-shaped divergence</strong> is deepening: the energy shock functions as a regressive tax, eliminating all fiscal benefit from tax refunds for low- and middle-income households. Consumer sentiment dropped sharply post-conflict. On the positive side, manufacturing PMI held above 50, initial jobless claims remain stable, and defense + energy sector capex is accelerating.
+          <div class="macro-card-metrics">
+            <span class="data-pill warn">GDP → 2.1%</span>
+            <span class="data-pill down">NFP → +60–75K</span>
+            <span class="data-pill">Unemployment → 4.4%</span>
+            <span class="data-pill up">Mfg PMI 52.7</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="macro-card">
+        <div class="macro-card-header">
+          <div class="macro-card-title"><span class="macro-card-icon">🇪🇺</span>Euro Area</div>
+          <span class="status-badge negative">Negative</span>
+        </div>
+        <div class="region-label">Executive Summary</div>
+        <div class="macro-card-body">
+          Europe is the developed market most exposed to the Hormuz shock. The region is a structural energy importer with limited domestic reserves, and LNG re-routing has compounded natural gas shortages. Headline HICP is projected to jump from 1.9% to <strong>2.5–3.1%</strong> near-term, forcing the ECB into an unwanted hiking cycle. Terms of trade are deteriorating rapidly, EUR/USD faces H1 downside, and growth expectations are being revised materially lower. The ECB hikes represent a negative growth impulse applied precisely when the economy is already under supply shock stress.
+          <div class="macro-card-metrics">
+            <span class="data-pill down">HICP → 2.8–3.1%</span>
+            <span class="data-pill warn">ECB +25bp Apr/Jun</span>
+            <span class="data-pill down">EUR/USD Downside H1</span>
+            <span class="data-pill down">Gas Supply Squeeze</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="macro-card">
+        <div class="macro-card-header">
+          <div class="macro-card-title"><span class="macro-card-icon">🇬🇧</span>United Kingdom</div>
+          <span class="status-badge negative">Negative</span>
+        </div>
+        <div class="region-label">Executive Summary</div>
+        <div class="macro-card-body">
+          The UK shares Europe's energy vulnerability but with an additional fiscal constraint — elevated debt service costs leave less room to subsidize consumers. The BoE is expected to hike +25bp in April and +25bp in June, tightening financial conditions into a slowing economy. Renewed yield curve concerns are emerging as rate expectations rebuild. GBP faces underperformance vs. USD as the rate differential compresses and growth slows. Domestic consumers face the dual headwind of higher energy bills and rising mortgage costs from BoE hikes.
+          <div class="macro-card-metrics">
+            <span class="data-pill warn">BoE +25bp Apr/Jun</span>
+            <span class="data-pill down">GBP Underperformance</span>
+            <span class="data-pill down">Dual Energy/Rate Squeeze</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ── Asia Regional ──────────────────────────────────────────────────── -->
+  <div class="macro-section">
+    <div class="section-label">Regional Conditions — Asia</div>
+    <div class="macro-regional-grid">
+
+      <div class="macro-card">
+        <div class="macro-card-header">
+          <div class="macro-card-title"><span class="macro-card-icon">🐉</span>China</div>
+          <span class="status-badge positive">Positive</span>
+        </div>
+        <div class="region-label">Executive Summary</div>
+        <div class="macro-card-body">
+          China is the most insulated major economy from the Hormuz shock. Strategic oil stockpiles of <strong>&gt;100 days cover</strong>, heavy reliance on domestic coal and hydropower, and government-administered fuel price caps are absorbing the impact. Conditional tanker passage exceptions give China access to discounted Persian Gulf crude. Paradoxically, rising oil prices are helping China escape deflation — PPI is turning positive for the first time since March 2022. The 15th Five-Year Plan "barbell strategy" (high-tech + social safety net) provides structural policy support. GDP tracking 4.6–4.7% for 2026.
+          <div class="macro-card-metrics">
+            <span class="data-pill up">GDP → 4.6–4.7%</span>
+            <span class="data-pill up">PPI → +1.0% YoY</span>
+            <span class="data-pill up">&gt;100 Days Oil Cover</span>
+            <span class="data-pill">PBOC 50bp RRR Cut</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="macro-card">
+        <div class="macro-card-header">
+          <div class="macro-card-title"><span class="macro-card-icon">🗾</span>Japan</div>
+          <span class="status-badge mixed">Mixed</span>
+        </div>
+        <div class="region-label">Executive Summary</div>
+        <div class="macro-card-body">
+          Japan is caught between structural progress on wage growth and new headwinds from the energy shock. Shunto wage negotiations delivered <strong>+5.26% wage increases</strong>, the strongest in decades and a positive structural signal. However, inflation has been revised up +1.1pp, eroding real purchasing power gains. The BoJ is expected to delay its April rate hike, with June now the more probable timing. Super-long JGBs face selling pressure from limited structural domestic demand. Yen is expected to benefit as a safe-haven asset in deep risk-off scenarios.
+          <div class="macro-card-metrics">
+            <span class="data-pill up">Shunto Wages +5.26%</span>
+            <span class="data-pill down">Inflation +1.1pp</span>
+            <span class="data-pill warn">BoJ Hike Delayed → Jun</span>
+            <span class="data-pill up">JPY Safe-Haven Bid</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="macro-card">
+        <div class="macro-card-header">
+          <div class="macro-card-title"><span class="macro-card-icon">🏙</span>Hong Kong</div>
+          <span class="status-badge negative">Negative</span>
+        </div>
+        <div class="region-label">Executive Summary</div>
+        <div class="macro-card-body">
+          Hong Kong's open, finance-driven economy is under compounding pressure. As a USD-pegged economy, it mechanically imports US monetary policy tightness, which is weighing on property valuations and credit conditions. Geopolitical risk premium on HK assets remains elevated. Trade flows through the port are disrupted as global freight costs rise. Financial services activity is softening as regional risk appetite pulls back. However, HK's deep integration with mainland China provides a partial buffer via cross-border business flows and China's relative macro resilience.
+          <div class="macro-card-metrics">
+            <span class="data-pill down">USD Peg Imports Tightness</span>
+            <span class="data-pill down">Property Under Pressure</span>
+            <span class="data-pill warn">China Linkage Buffer</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="macro-card">
+        <div class="macro-card-header">
+          <div class="macro-card-title"><span class="macro-card-icon">🖥</span>Taiwan</div>
+          <span class="status-badge positive">Positive</span>
+        </div>
+        <div class="region-label">Executive Summary</div>
+        <div class="macro-card-body">
+          Taiwan's semiconductor industry is serving as a powerful economic buffer. Global AI and data center buildout is sustaining chip demand at elevated levels, with export revenues offsetting the oil import bill. Deep fiscal reserves allow the government to subsidize energy costs without triggering fiscal stress. The primary concern is power grid vulnerability — energy policy is being urgently reconsidered amid supply shortages. Geopolitical risk premium on TWD assets remains a structural overhang, but near-term macro fundamentals remain among the strongest in Asia.
+          <div class="macro-card-metrics">
+            <span class="data-pill up">Semiconductor Exports Strong</span>
+            <span class="data-pill up">Deep Fiscal Reserves</span>
+            <span class="data-pill warn">Power Grid Stress</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="macro-card">
+        <div class="macro-card-header">
+          <div class="macro-card-title"><span class="macro-card-icon">🇰🇷</span>South Korea</div>
+          <span class="status-badge mixed">Mixed</span>
+        </div>
+        <div class="region-label">Executive Summary</div>
+        <div class="macro-card-body">
+          Korea is experiencing a split economy: the <strong>semiconductor export boom (+151.4% YoY)</strong> is generating a record trade surplus of $25.7B, while the domestic economy stagflates. GDP has been cut to 2.0–2.2% and CPI revised up to 2.4–2.6%. The government responded with a KRW 25 trillion supplementary budget and fuel tax cuts. An emergency KTB (Korean Treasury Bond) buyback was launched to stabilize the bond market. KRW remains under depreciation pressure. Net assessment: externally strong, domestically stressed.
+          <div class="macro-card-metrics">
+            <span class="data-pill up">Semis Exports +151.4%</span>
+            <span class="data-pill up">Trade Surplus $25.7B</span>
+            <span class="data-pill warn">GDP → 2.0–2.2%</span>
+            <span class="data-pill down">CPI → 2.4–2.6%</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="macro-card">
+        <div class="macro-card-header">
+          <div class="macro-card-title"><span class="macro-card-icon">🇵🇭</span>Philippines</div>
+          <span class="status-badge negative">Negative</span>
+        </div>
+        <div class="region-label">Executive Summary</div>
+        <div class="macro-card-body">
+          The Philippines is among the most vulnerable economies in Asia. As a net oil importer with a pre-existing current account deficit, the Hormuz shock is delivering a severe terms-of-trade shock. Immediate fuel rationing measures have been implemented. BSP has shifted to an off-cycle rate hold, signalling the end of its easing cycle. USD/PHP is forecast to weaken to 62. Remittance inflows from overseas workers provide partial support, but the domestic consumer and industrial sectors face acute cost pressures with limited fiscal space for comprehensive subsidies.
+          <div class="macro-card-metrics">
+            <span class="data-pill down">Current Account Deficit</span>
+            <span class="data-pill down">USD/PHP → 62</span>
+            <span class="data-pill warn">BSP Off-Cycle Hold</span>
+            <span class="data-pill down">Fuel Rationing Active</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="macro-card">
+        <div class="macro-card-header">
+          <div class="macro-card-title"><span class="macro-card-icon">🦁</span>Singapore</div>
+          <span class="status-badge mixed">Mixed</span>
+        </div>
+        <div class="region-label">Executive Summary</div>
+        <div class="macro-card-body">
+          Singapore occupies a nuanced position as a global trade and financial hub. Its deep port and logistics infrastructure is benefiting from re-routing activity, providing some offset to energy cost increases. Core CPI has ticked up, setting the stage for <strong>MAS slope steepening</strong> at the upcoming meeting — a modest policy tightening. GDP has been revised down by &gt;0.5pp, reflecting trade volume disruptions. Singapore's fiscal resilience and reserve depth allow for targeted consumer support. Long-term, elevated geopolitical risk may accelerate financial flows into the city-state as a neutral hub.
+          <div class="macro-card-metrics">
+            <span class="data-pill down">GDP Revised Down &gt;0.5pp</span>
+            <span class="data-pill warn">MAS Slope Steepening</span>
+            <span class="data-pill up">Hub Routing Benefit</span>
+            <span class="data-pill warn">Core CPI Rising</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="macro-card">
+        <div class="macro-card-header">
+          <div class="macro-card-title"><span class="macro-card-icon">🌴</span>Indonesia</div>
+          <span class="status-badge mixed">Mixed</span>
+        </div>
+        <div class="region-label">Executive Summary</div>
+        <div class="macro-card-body">
+          Indonesia is a commodity exporter (coal, palm oil, nickel, LNG) benefiting from elevated energy and resource prices — a meaningful terms-of-trade tailwind. The current account is improving, providing IDR support. However, domestic fuel subsidy costs are rising sharply as the government attempts to shield consumers from pump price pass-through, creating fiscal pressure. Inflation is rising even with price controls. Bank Indonesia faces a difficult balance: defending the IDR while avoiding overtightening into slowing growth. Net assessment skews marginally positive given commodity windfalls but faces escalating fiscal cost.
+          <div class="macro-card-metrics">
+            <span class="data-pill up">Commodity Export Windfall</span>
+            <span class="data-pill up">CAB Improving</span>
+            <span class="data-pill down">Fuel Subsidy Cost Surge</span>
+            <span class="data-pill warn">Inflation Rising</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="macro-card">
+        <div class="macro-card-header">
+          <div class="macro-card-title"><span class="macro-card-icon">🐘</span>Thailand</div>
+          <span class="status-badge negative">Negative</span>
+        </div>
+        <div class="region-label">Executive Summary</div>
+        <div class="macro-card-body">
+          Thailand is one of the hardest-hit economies in Asia. It is a structural energy importer with a tourism-dependent service sector that is also softening. Fuel rationing measures are in place. The Thai Baht (THB) is among the most vulnerable EM currencies — Goldman Sachs targets USD/THB at 34.0 (3M) to 33.0 (12M). GDP has been revised down &gt;0.5pp alongside sharp CPI revisions higher. Limited fiscal space constrains the government's ability to meaningfully subsidize energy costs. The combination of external deficit, currency weakness, inflation, and weak tourism recovery represents a difficult macro constellation.
+          <div class="macro-card-metrics">
+            <span class="data-pill down">USD/THB → 34.0</span>
+            <span class="data-pill down">GDP Revised Down</span>
+            <span class="data-pill down">Fuel Rationing Active</span>
+            <span class="data-pill down">Tourism Softening</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="macro-card">
+        <div class="macro-card-header">
+          <div class="macro-card-title"><span class="macro-card-icon">🇮🇳</span>India</div>
+          <span class="status-badge negative">Negative</span>
+        </div>
+        <div class="region-label">Executive Summary</div>
+        <div class="macro-card-body">
+          India faces an acute stagflation shock as one of the world's largest oil importers. GDP growth has been revised down to <strong>5.9–6.5%</strong> (from 6.5%+) — a significant markdown for a country that has been the fastest-growing major economy. The government cut fuel excise duties and export taxes to limit domestic price pass-through, at the cost of fiscal slippage. USD/INR is forecast to weaken to 97. While Indian tankers received conditional Hormuz passage exceptions providing some access to discounted crude, overall import bills are still rising substantially. Domestic manufacturing and consumer confidence are under pressure.
+          <div class="macro-card-metrics">
+            <span class="data-pill warn">GDP → 5.9–6.5%</span>
+            <span class="data-pill down">USD/INR → 97</span>
+            <span class="data-pill warn">Excise Duty Cut (Fiscal Cost)</span>
+            <span class="data-pill down">Largest Oil Import Bill</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
 </div>
 
 <div id="mindmap-container">
