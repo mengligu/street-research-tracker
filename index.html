@@ -6,18 +6,15 @@
 <title>Street Research — Global Macro Mind Map</title>
 <style>
   :root {
-    --bg: #0a0e1a;
-    --surface: #111827;
-    --surface2: #1a2235;
-    --border: #1f2d45;
-    --accent: #3b82f6;
-    --accent2: #6366f1;
-    --gold: #f59e0b;
-    --green: #10b981;
-    --red: #ef4444;
-    --text: #e2e8f0;
-    --muted: #64748b;
-    --node-colors: #3b82f6, #6366f1, #8b5cf6, #ec4899, #f59e0b, #10b981, #06b6d4, #f97316, #ef4444, #84cc16;
+    --bg: #f4f6fa;
+    --surface: #ffffff;
+    --surface2: #f0f4f9;
+    --border: #dde3ee;
+    --text: #1a2035;
+    --muted: #7b8db0;
+    --gold: #d97706;
+    --green: #059669;
+    --red: #dc2626;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body {
@@ -30,7 +27,7 @@
 
   /* Header */
   header {
-    padding: 28px 48px;
+    padding: 22px 48px;
     border-bottom: 1px solid var(--border);
     display: flex;
     align-items: center;
@@ -39,36 +36,37 @@
     position: sticky;
     top: 0;
     z-index: 100;
+    box-shadow: 0 1px 8px rgba(30,50,100,0.06);
   }
   header h1 {
-    font-size: 1.25rem;
-    font-weight: 700;
+    font-size: 1.15rem;
+    font-weight: 800;
     letter-spacing: -0.02em;
-    background: linear-gradient(135deg, #e2e8f0 0%, #94a3b8 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: var(--text);
   }
+  header h1 span { color: #3b6fd4; }
   header .meta {
-    font-size: 0.75rem;
+    font-size: 0.72rem;
     color: var(--muted);
   }
   .live-badge {
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    background: rgba(16,185,129,0.1);
-    border: 1px solid rgba(16,185,129,0.3);
+    background: #ecfdf5;
+    border: 1px solid #a7f3d0;
     border-radius: 20px;
     padding: 4px 12px;
-    font-size: 0.7rem;
-    color: #10b981;
-    font-weight: 600;
-    letter-spacing: 0.05em;
+    font-size: 0.68rem;
+    color: #059669;
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
   }
   .live-badge::before {
     content: '';
     width: 6px; height: 6px;
-    background: #10b981;
+    background: #059669;
     border-radius: 50%;
     animation: pulse 2s infinite;
   }
@@ -77,45 +75,47 @@
   /* Central thesis */
   .central-thesis {
     text-align: center;
-    padding: 40px 48px 20px;
+    padding: 44px 48px 24px;
+    background: linear-gradient(180deg, #ffffff 0%, #f4f6fa 100%);
+    border-bottom: 1px solid var(--border);
   }
   .central-thesis h2 {
-    font-size: 0.7rem;
+    font-size: 0.65rem;
     text-transform: uppercase;
-    letter-spacing: 0.15em;
+    letter-spacing: 0.18em;
     color: var(--muted);
-    margin-bottom: 12px;
+    margin-bottom: 14px;
+    font-weight: 600;
   }
   .central-thesis p {
-    font-size: 1.1rem;
+    font-size: 1.05rem;
     font-weight: 500;
     color: var(--text);
-    max-width: 900px;
+    max-width: 860px;
     margin: 0 auto;
-    line-height: 1.6;
+    line-height: 1.7;
   }
   .central-thesis p span {
-    color: var(--gold);
+    color: #c2410c;
     font-weight: 700;
   }
 
-  /* Mind Map SVG area */
+  /* Mind Map SVG */
   #mindmap-container {
     width: 100%;
-    padding: 20px 48px 0;
-    position: relative;
+    padding: 32px 48px 0;
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
   }
   #mindmap-svg {
     width: 100%;
-    height: 480px;
-    cursor: default;
+    height: 460px;
   }
   .map-instructions {
     text-align: center;
-    font-size: 0.72rem;
+    font-size: 0.7rem;
     color: var(--muted);
-    margin-top: 8px;
-    padding-bottom: 16px;
+    padding: 10px 0 20px;
   }
 
   /* Branch sections */
@@ -123,10 +123,11 @@
     padding: 0 48px 80px;
   }
   .section-label {
-    font-size: 0.68rem;
+    font-size: 0.65rem;
     text-transform: uppercase;
-    letter-spacing: 0.15em;
+    letter-spacing: 0.16em;
     color: var(--muted);
+    font-weight: 600;
     padding: 32px 0 16px;
     display: flex;
     align-items: center;
@@ -142,175 +143,166 @@
   .branches-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(480px, 1fr));
-    gap: 20px;
+    gap: 16px;
   }
 
   .branch-card {
     background: var(--surface);
-    border: 1px solid var(--border);
+    border: 1.5px solid var(--border);
     border-radius: 16px;
     overflow: hidden;
-    transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+    transition: transform 0.18s, box-shadow 0.18s, border-color 0.18s;
     cursor: pointer;
   }
   .branch-card:hover {
     transform: translateY(-2px);
-    box-shadow: 0 12px 40px rgba(0,0,0,0.4);
+    box-shadow: 0 8px 28px rgba(30,50,100,0.10);
   }
   .branch-card.expanded {
     grid-column: 1 / -1;
   }
 
   .branch-header {
-    padding: 20px 24px;
+    padding: 18px 22px;
     display: flex;
     align-items: center;
-    gap: 16px;
-    border-bottom: 1px solid transparent;
-    transition: border-color 0.2s;
+    gap: 14px;
+    border-bottom: 1.5px solid transparent;
+    transition: border-color 0.2s, background 0.2s;
   }
   .branch-card.expanded .branch-header {
     border-bottom-color: var(--border);
+    background: var(--surface2);
   }
 
   .branch-icon {
-    width: 44px; height: 44px;
-    border-radius: 12px;
+    width: 42px; height: 42px;
+    border-radius: 11px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.3rem;
+    font-size: 1.25rem;
     flex-shrink: 0;
   }
 
   .branch-title-wrap { flex: 1; }
   .branch-title {
-    font-size: 1rem;
+    font-size: 0.97rem;
     font-weight: 700;
     letter-spacing: -0.01em;
   }
   .branch-tagline {
-    font-size: 0.75rem;
+    font-size: 0.72rem;
     color: var(--muted);
     margin-top: 3px;
     line-height: 1.4;
   }
 
   .branch-toggle {
-    width: 28px; height: 28px;
+    width: 26px; height: 26px;
     border-radius: 50%;
     background: var(--surface2);
-    border: 1px solid var(--border);
+    border: 1.5px solid var(--border);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     color: var(--muted);
     transition: transform 0.3s;
     flex-shrink: 0;
   }
-  .branch-card.expanded .branch-toggle {
-    transform: rotate(180deg);
-  }
+  .branch-card.expanded .branch-toggle { transform: rotate(180deg); }
 
   /* Sub-themes */
   .branch-body {
     display: none;
-    padding: 0 24px 24px;
+    padding: 4px 22px 22px;
   }
-  .branch-card.expanded .branch-body {
-    display: block;
-  }
+  .branch-card.expanded .branch-body { display: block; }
 
   .subtheme {
-    margin-top: 20px;
-    padding: 16px;
+    margin-top: 16px;
+    padding: 15px 16px;
     background: var(--surface2);
-    border-radius: 12px;
+    border-radius: 11px;
     border-left: 3px solid;
   }
   .subtheme-title {
-    font-size: 0.82rem;
+    font-size: 0.75rem;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.06em;
+    letter-spacing: 0.07em;
     margin-bottom: 8px;
   }
   .subtheme-content {
-    font-size: 0.85rem;
-    color: #94a3b8;
-    line-height: 1.65;
+    font-size: 0.84rem;
+    color: #4a5568;
+    line-height: 1.7;
   }
-  .subtheme-content strong {
-    color: var(--text);
-    font-weight: 600;
-  }
+  .subtheme-content strong { color: var(--text); font-weight: 600; }
 
   /* Data pills */
   .data-pill {
     display: inline-flex;
     align-items: center;
-    background: rgba(59,130,246,0.1);
-    border: 1px solid rgba(59,130,246,0.25);
-    border-radius: 6px;
-    padding: 2px 8px;
-    font-size: 0.75rem;
-    font-weight: 600;
-    color: #93c5fd;
-    margin: 2px 3px;
+    background: #eff6ff;
+    border: 1px solid #bfdbfe;
+    border-radius: 5px;
+    padding: 1px 7px;
+    font-size: 0.73rem;
+    font-weight: 700;
+    color: #1d4ed8;
+    margin: 1px 2px;
     font-family: 'SF Mono', 'Fira Code', monospace;
   }
-  .data-pill.up { background: rgba(16,185,129,0.1); border-color: rgba(16,185,129,0.25); color: #6ee7b7; }
-  .data-pill.down { background: rgba(239,68,68,0.1); border-color: rgba(239,68,68,0.25); color: #fca5a5; }
-  .data-pill.warn { background: rgba(245,158,11,0.1); border-color: rgba(245,158,11,0.25); color: #fcd34d; }
+  .data-pill.up  { background: #f0fdf4; border-color: #bbf7d0; color: #15803d; }
+  .data-pill.down { background: #fef2f2; border-color: #fecaca; color: #b91c1c; }
+  .data-pill.warn { background: #fffbeb; border-color: #fde68a; color: #b45309; }
 
-  /* Trade ideas */
+  /* Trade box */
   .trade-box {
     margin-top: 12px;
     padding: 12px 14px;
-    background: rgba(99,102,241,0.07);
-    border: 1px solid rgba(99,102,241,0.2);
+    background: #f5f3ff;
+    border: 1px solid #ddd6fe;
     border-radius: 10px;
   }
   .trade-box-label {
-    font-size: 0.65rem;
+    font-size: 0.63rem;
     text-transform: uppercase;
     letter-spacing: 0.12em;
-    color: #818cf8;
+    color: #6d28d9;
     font-weight: 700;
     margin-bottom: 8px;
   }
   .trade-item {
-    font-size: 0.8rem;
-    color: #c7d2fe;
+    font-size: 0.79rem;
+    color: #4c1d95;
     padding: 4px 0;
-    border-bottom: 1px solid rgba(99,102,241,0.1);
+    border-bottom: 1px solid #ede9fe;
     line-height: 1.5;
   }
   .trade-item:last-child { border-bottom: none; }
-  .trade-item::before {
-    content: '▸ ';
-    color: #6366f1;
-    font-size: 0.7rem;
-  }
+  .trade-item::before { content: '▸ '; color: #7c3aed; font-size: 0.68rem; }
 
   /* Footer */
   footer {
     text-align: center;
-    padding: 24px;
+    padding: 22px;
     border-top: 1px solid var(--border);
-    font-size: 0.72rem;
+    font-size: 0.7rem;
     color: var(--muted);
+    background: var(--surface);
   }
 </style>
 </head>
 <body>
 
 <header>
-  <h1>Street Research · Global Macro Tracker</h1>
+  <h1>Street Research <span>·</span> Global Macro Tracker</h1>
   <div style="display:flex;align-items:center;gap:16px">
-    <span class="meta">Sources: GS · JPM · MS · Citi · April 2026</span>
-    <span class="live-badge">LIVE</span>
+    <span class="meta">GS · JPM · MS · Citi · April 2026</span>
+    <span class="live-badge">Live</span>
   </div>
 </header>
 
@@ -320,7 +312,7 @@
 </div>
 
 <div id="mindmap-container">
-  <svg id="mindmap-svg" viewBox="0 0 1200 480"></svg>
+  <svg id="mindmap-svg" viewBox="0 0 1200 460"></svg>
   <p class="map-instructions">Click any node to jump to its detail section below</p>
 </div>
 
@@ -338,82 +330,88 @@ const BRANCHES = [
   {
     id: "geopolitics",
     icon: "🌍",
-    color: "#ef4444",
+    color: "#dc2626",
+    bg: "#fef2f2",
+    border: "#fecaca",
     title: "Geopolitics & Energy Shock",
     tagline: "Hormuz closure · 17.6mb/d disrupted · $110/bbl Brent",
     subthemes: [
       {
         label: "The Global Shock",
-        color: "#ef4444",
-        content: `<strong>Operation Epic Fury</strong> launched February 28 — effectively closing the Strait of Hormuz, with daily tanker traffic down <span class="data-pill down">90%+</span>. An estimated <span class="data-pill down">17.6mb/d</span> of Persian Gulf oil flows has been disrupted, representing the largest energy supply disruption in recorded history. Asian nations have instituted four-day workweeks, school closures, and alternating driving days to preserve fuel.`,
+        color: "#dc2626",
+        content: `<strong>Operation Epic Fury</strong> launched February 28 — effectively closing the Strait of Hormuz, with daily tanker traffic down <span class="data-pill down">90%+</span>. An estimated <span class="data-pill down">17.6mb/d</span> of Persian Gulf oil flows disrupted — the largest energy supply disruption in recorded history. Asian nations have instituted four-day workweeks, school closures, and alternating driving days to preserve fuel.`,
       },
       {
         label: "Commodity Forecasts",
-        color: "#f97316",
-        content: `Base case: Brent averages <span class="data-pill warn">$110/bbl</span> in March–April, gradually declining to <span class="data-pill">$80/bbl</span> by year-end. Adverse scenario (60-day disruption with long-term capacity scarring): Brent could reach <span class="data-pill down">$110/bbl by 4Q2027</span>. IEA announced a record <span class="data-pill warn">400M barrel</span> emergency stock release to offset near-term supply deficit.`,
+        color: "#b91c1c",
+        content: `Base case: Brent averages <span class="data-pill warn">$110/bbl</span> in March–April, declining to <span class="data-pill">$80/bbl</span> by year-end. Adverse scenario (60-day disruption with capacity scarring): Brent could reach <span class="data-pill down">$110/bbl by 4Q2027</span>. IEA announced a record <span class="data-pill warn">400M barrel</span> emergency stock release.`,
       },
       {
         label: "Mitigation Efforts",
-        color: "#fbbf24",
-        content: `IEA coordinated the largest emergency reserve release in history. GCC nations face a paradox — record energy revenues but shut-in production affecting long-run output capacity. LNG re-routing is adding weeks to shipping times, compounding European natural gas shortages. Chinese and Indian tankers have received conditional Hormuz exceptions, creating a two-tiered crude market.`,
+        color: "#ef4444",
+        content: `IEA coordinated the largest emergency reserve release in history. GCC nations face record energy revenues but shut-in production risk. LNG re-routing adding weeks to shipping times, compounding European gas shortages. Chinese and Indian tankers received conditional Hormuz exceptions, creating a two-tiered crude market.`,
       },
     ],
   },
   {
     id: "central-banks",
     icon: "🏛",
-    color: "#6366f1",
+    color: "#4f46e5",
+    bg: "#eef2ff",
+    border: "#c7d2fe",
     title: "Central Bank Policy",
     tagline: "Fed on hold · ECB & BoE hiking · PBOC pausing cuts",
     subthemes: [
       {
         label: "Fed: Patience Over Panic",
-        color: "#6366f1",
-        content: `The US Federal Reserve is expected to "look through" the transitory inflation shock and prioritize growth protection under its dual mandate. Expected rate cuts pushed back to <span class="data-pill">Sep 2026</span> and <span class="data-pill">Dec 2026</span>. Terminal rate now <span class="data-pill">3.0–3.25%</span>. The bar for Fed hikes is considered very high — a cycle of higher wages and prices unlikely given a softening labor market.`,
+        color: "#4f46e5",
+        content: `The US Federal Reserve is expected to "look through" the transitory inflation shock and prioritize growth under its dual mandate. Rate cuts pushed back to <span class="data-pill">Sep 2026</span> and <span class="data-pill">Dec 2026</span>. Terminal rate <span class="data-pill">3.0–3.25%</span>. Bar for Fed hikes considered very high — wage-price spiral unlikely given softening labor market.`,
       },
       {
         label: "ECB & BoE: Hawkish Pivots",
-        color: "#8b5cf6",
-        content: `Both the ECB and BoE are now expected to hike <span class="data-pill warn">+25bp in April</span> and <span class="data-pill warn">+25bp in June</span> in response to the energy-driven inflation surge. The RBA already preemptively hiked by <span class="data-pill">+25bp</span>. OIS curves now price in multiple hikes across European central banks, creating the sharpest US–EU rate policy divergence in years.`,
+        color: "#6d28d9",
+        content: `Both ECB and BoE now expected to hike <span class="data-pill warn">+25bp in April</span> and <span class="data-pill warn">+25bp in June</span>. RBA already preemptively hiked <span class="data-pill">+25bp</span>. OIS curves now price in multiple hikes across European CBs — sharpest US–EU policy divergence in years.`,
       },
       {
         label: "EM & PBOC",
-        color: "#a78bfa",
-        content: `Emerging market central banks (e.g., Philippines' BSP) are delaying rate cuts. The PBOC is adopting a "bias toward inaction" — looking through the oil shock. Analysts dropped their 2026 PBOC policy rate cut call entirely. However, a <span class="data-pill">50bp RRR cut</span> remains in the baseline to provide liquidity and accommodate incoming fiscal easing measures.`,
+        color: "#7c3aed",
+        content: `EM CBs (e.g., Philippines BSP) delaying rate cuts. PBOC adopting a "bias toward inaction" — looking through the oil shock. 2026 policy rate cut call dropped entirely. However, a <span class="data-pill">50bp RRR cut</span> remains in baseline to accommodate incoming fiscal easing.`,
       },
     ],
   },
   {
     id: "fx",
     icon: "💱",
-    color: "#3b82f6",
+    color: "#0369a1",
+    bg: "#f0f9ff",
+    border: "#bae6fd",
     title: "FX / Currencies",
     tagline: "USD supported · THB & INR vulnerable · EUR downside risk",
     subthemes: [
       {
         label: "Dollar Dynamics",
-        color: "#3b82f6",
-        content: `The USD has found support as a safe-haven, benefiting from strong terms-of-trade vs. energy-importing Europe and Asia. If growth risks amplify, expect more muted USD appreciation broadly but deep EM underperformance against safe havens like <span class="data-pill up">JPY</span> and <span class="data-pill up">CHF</span>.`,
+        color: "#0369a1",
+        content: `USD has found support as a safe-haven, benefiting from strong terms-of-trade vs. energy-importing Europe and Asia. If growth risks amplify, expect muted USD appreciation broadly but deep EM underperformance against <span class="data-pill up">JPY</span> and <span class="data-pill up">CHF</span>.`,
       },
       {
         label: "EM FX Forecasts",
-        color: "#0ea5e9",
+        color: "#0284c7",
         content: `Forecasts revised weaker for vulnerable Asian currencies:<br>
         <span class="data-pill warn">USD/INR → 97/96/96</span> (3M/6M/12M)<br>
         <span class="data-pill warn">USD/PHP → 62/61/61</span><br>
         <span class="data-pill warn">USD/THB → 34.0/33.5/33.0</span><br>
-        China SAFE data showed net FX inflows of <span class="data-pill up">$44B</span> in February with a 66% FX conversion ratio, signalling relative RMB resilience.`,
+        China SAFE: net FX inflows <span class="data-pill up">$44B</span> in February, 66% conversion ratio — relative RMB resilience.`,
       },
       {
         label: "Trade Ideas",
-        color: "#38bdf8",
+        color: "#0ea5e9",
         content: ``,
         trades: [
           "Hold USD length vs EUR, GBP, SEK, and NZD as energy shock hedge",
           "Move UW Asia FX — add UW INR; keep OW MYR and UW THB",
           "Buy AUD vs. GBP & SEK basket",
           "Sell 4M EUR/BRL delta-hedged straddles to capture potential repricing",
-          "EUR/USD facing H1 2026 downside — energy shock disproportionately hits Euro area terms of trade",
+          "EUR/USD facing H1 2026 downside — energy shock disproportionately hits Euro area ToT",
         ],
       },
     ],
@@ -421,33 +419,35 @@ const BRANCHES = [
   {
     id: "rates",
     icon: "📈",
-    color: "#10b981",
+    color: "#047857",
+    bg: "#ecfdf5",
+    border: "#a7f3d0",
     title: "Rates / Fixed Income",
     tagline: "Bear steepeners · 10Y UST → 4.10% · 2Y longs favored",
     subthemes: [
       {
         label: "Yield Curve Repricing",
-        color: "#10b981",
-        content: `Global rates have aggressively bear-steepened as energy disruptions erode rate-cut pricing and fuel renewed inflation fears. Front-end yields spiked sharply. OIS curves now price multiple hikes for ECB and BoE. The US 10Y Treasury yield climbed tracking oil prices. Japan super-long JGBs are especially vulnerable — limited structural domestic demand beyond foreign investors and pension rebalancing.`,
+        color: "#047857",
+        content: `Global rates aggressively bear-steepened as energy disruptions erode rate-cut pricing and refuel inflation fears. US 10Y climbed tracking oil prices. Japan super-long JGBs especially vulnerable — limited structural domestic demand. Foreign Treasury holdings at lowest since 1997. US front-end saw concentrated positioning unwinds.`,
       },
       {
         label: "Key Forecasts",
         color: "#059669",
         content: `<span class="data-pill">US 10Y UST → 4.10%</span> end-2026<br>
         <span class="data-pill">10Y German Bund → 3.00%</span> end-2026<br>
-        US front-end positioning unwinds evident — WN basis flows and futures open interest signal concentrated deleveraging. Foreign Treasury holdings at lowest since 1997.`,
+        OIS curves pricing multiple ECB and BoE hikes. Positioning-driven selloffs typically exhaust within 10–15 trading days — inflection point approaching.`,
       },
       {
         label: "Trade Ideas",
-        color: "#34d399",
+        color: "#10b981",
         content: ``,
         trades: [
-          "Initiate 2Y UST Longs — bar for Fed hikes is high; bullish bias at front-end",
+          "Initiate 2Y UST Longs — bar for Fed hikes is high; bullish front-end bias",
           "Buy USTs + yield curve steepeners",
-          "Stay long 5Y TIPS as inflation hedge",
+          "Stay long 5Y TIPS as energy-driven inflation hedge",
           "Enter paid Z6 ECB vs. SNB to play CB reaction function divergence",
           "MW on EM rates; hold MYR payers in Asia; take profit on TRY cross-currency payers",
-          "2s/5s/10s belly-cheapening butterfly trades to position for prolonged Fed pause",
+          "2s/5s/10s belly-cheapening butterfly to position for prolonged Fed pause",
         ],
       },
     ],
@@ -455,30 +455,32 @@ const BRANCHES = [
   {
     id: "equities",
     icon: "📊",
-    color: "#f59e0b",
+    color: "#b45309",
+    bg: "#fffbeb",
+    border: "#fde68a",
     title: "Equities",
     tagline: "S&P 500 → 7,600 · Energy & Semis favored · Growth next shoe",
     subthemes: [
       {
         label: "Growth: The Next Shoe to Drop",
-        color: "#f59e0b",
-        content: `Markets initially treated the conflict as an inflation shock, but analysts warn <strong>"growth is the next shoe to drop"</strong> if high energy prices persist and compress corporate margins. Goldman Sachs lowered its 2026 US GDP growth forecast and raised US recession probability to <span class="data-pill warn">30%</span>.`,
+        color: "#b45309",
+        content: `Markets initially treated the conflict as an inflation shock, but analysts warn <strong>"growth is the next shoe to drop"</strong> if high energy prices persist and compress corporate margins. Goldman Sachs raised US recession probability to <span class="data-pill warn">30%</span> while lowering 2026 GDP growth forecasts.`,
       },
       {
         label: "Forecasts",
         color: "#d97706",
-        content: `<span class="data-pill up">S&P 500 → 7,600</span> by year-end · EPS of <span class="data-pill">$322</span><br>
-        MXAPJ (EM Asia) trading flat with Brent above $100 — oil sensitivity driving regional equity divergence. Xiaomi highlighted as a standout Asia alpha idea.`,
+        content: `<span class="data-pill up">S&P 500 → 7,600</span> year-end · EPS <span class="data-pill">$322</span><br>
+        MXAPJ trading flat with Brent above $100 — oil sensitivity driving regional equity divergence. Semiconductor upcycle acting as a key buffer for Korea and Taiwan.`,
       },
       {
         label: "Trade Ideas",
-        color: "#fbbf24",
+        color: "#f59e0b",
         content: ``,
         trades: [
           "Favor upstream commodity sectors: Energy and Metals & Mining",
           "Target GARP pockets: Tech Hardware, Semiconductors, Retail, Internet",
           "Physical AI / Robotics: attractive entry as capex cycle matures",
-          "Defense sector: geopolitical tailwind, underowned",
+          "Defense sector: geopolitical tailwind, structurally underowned",
           "Attractive EM entry points: Brazil, South Africa, South Korea",
           "Avoid high-oil-cost consumer staples and low-margin industrials",
         ],
@@ -488,29 +490,31 @@ const BRANCHES = [
   {
     id: "credit",
     icon: "🏦",
-    color: "#ec4899",
+    color: "#be185d",
+    bg: "#fdf2f8",
+    border: "#fbcfe8",
     title: "Credit",
     tagline: "Spreads widening · CLO AAA → 124bp · HY oil exporters favored",
     subthemes: [
       {
         label: "Spread Dynamics",
-        color: "#ec4899",
-        content: `Credit spreads are softening amid geopolitical jump risk and stagflationary headwinds. US CLO T1 AAA new-issue spread has widened to <span class="data-pill down">124bp</span>, moving toward a <span class="data-pill">130bp</span> year-end target. Decompression between Investment Grade and High Yield is increasing as leverage rises on energy cost pressures. Private credit faces macro risks as default rates tick higher.`,
+        color: "#be185d",
+        content: `Credit spreads softening amid geopolitical jump risk and stagflationary headwinds. US CLO T1 AAA new-issue spread widened to <span class="data-pill down">124bp</span>, moving toward <span class="data-pill">130bp</span> year-end target. IG/HY decompression increasing as leverage rises. Private credit faces macro headwinds as default rates tick higher.`,
       },
       {
         label: "EM Credit Positioning",
         color: "#db2777",
-        content: `Current EM spreads do not offer attractive risk-reward. CEMBI BD spread year-end target: <span class="data-pill">210bp</span>. Basel III Endgame (B3E) capital rules being finalized — positive impact expected for securitized products and manufactured housing sector through reduced capital charges.`,
+        content: `Current EM spreads do not offer attractive risk-reward. CEMBI BD year-end target: <span class="data-pill">210bp</span>. Basel III Endgame (B3E) capital rules being finalized — positive impact expected for securitized products and manufactured housing sector via reduced capital charges.`,
       },
       {
         label: "Trade Ideas",
-        color: "#f472b6",
+        color: "#ec4899",
         content: ``,
         trades: [
           "UW EM Sovereign and Corporate Credit broadly",
           "OW HY oil exporters: Ecuador and Nigeria",
           "UW oil importers and GCC credits: Bahrain and Saudi Arabia (shut-in production risk)",
-          "Remove UW on EM corporates only if CEMBI BD spreads widen meaningfully above 210bp target",
+          "Remove UW on EM corporates only if CEMBI BD spreads widen meaningfully above 210bp",
           "Monitor CLO pipeline — AAA spread at 124bp a potential entry zone",
         ],
       },
@@ -519,135 +523,139 @@ const BRANCHES = [
   {
     id: "china",
     icon: "🐉",
-    color: "#06b6d4",
+    color: "#0e7490",
+    bg: "#ecfeff",
+    border: "#a5f3fc",
     title: "China Macro",
-    tagline: "Barbell strategy · Hormuz resilient · PPI deflation ending",
+    tagline: "Barbell FYP · Hormuz resilient · PPI deflation ending",
     subthemes: [
       {
         label: "15th Five-Year Plan: Barbell Strategy",
-        color: "#06b6d4",
-        content: `The 15th FYP drops references to global integration and shifts to a <strong>"barbell strategy"</strong> — high-tech development, national security, and supply chain indigenization on one end; incremental social safety nets on the other. Key priorities: robotics, Physical AI, quantum tech. China projected to account for <span class="data-pill up">30%</span> of global humanoid adoption by 2050.`,
+        color: "#0e7490",
+        content: `The 15th FYP drops references to global integration and adopts a <strong>"barbell strategy"</strong> — high-tech development, national security, and supply chain indigenization on one end; incremental social safety nets on the other. Key priorities: robotics, Physical AI, quantum tech. China projected to account for <span class="data-pill up">30%</span> of global humanoid adoption by 2050 due to cost advantages.`,
       },
       {
         label: "Energy Shock Resilience",
         color: "#0891b2",
-        content: `China is proving highly resilient to the Hormuz closure due to: strategic stockpiles of <span class="data-pill up">>100 days cover</span>, heavy reliance on domestic coal and hydropower, and administrative fuel price caps. Chinese and Indian tankers have received conditional Hormuz exceptions, giving China access to discounted crude.`,
+        content: `China is proving highly resilient to the Hormuz closure due to: strategic stockpiles of <span class="data-pill up">>100 days cover</span>, heavy reliance on domestic coal and hydropower, and administrative fuel price caps. Chinese tankers received conditional Hormuz exceptions giving access to discounted crude.`,
       },
       {
         label: "Forecasts",
-        color: "#22d3ee",
+        color: "#06b6d4",
         content: `<span class="data-pill up">GDP 2026 → 4.6–4.7%</span><br>
-        The oil shock is actually helping China escape deflation: <span class="data-pill up">PPI → +1.0% YoY</span> (ending an 11-quarter contraction). CPI to remain soft at <span class="data-pill">1.0% YoY</span> due to government price smoothing. PBOC: 50bp RRR cut expected; policy rate cut call dropped entirely.`,
+        Oil shock is helping China escape deflation: <span class="data-pill up">PPI → +1.0% YoY</span> (ending 11-quarter contraction). CPI to remain soft at <span class="data-pill">1.0% YoY</span> due to government price smoothing. PBOC: 50bp RRR cut expected; policy rate cut call dropped.`,
       },
     ],
   },
   {
     id: "asia",
     icon: "🌏",
-    color: "#84cc16",
+    color: "#4d7c0f",
+    bg: "#f7fee7",
+    border: "#d9f99d",
     title: "Asia Economies",
     tagline: "High-tech exporters buffer · importers stagflate · Korea semis surge",
     subthemes: [
       {
         label: "Vulnerability Spectrum",
-        color: "#84cc16",
-        content: `<strong>Resilient:</strong> Taiwan, Korea, Singapore — buffering via semiconductor boom and deep fiscal pockets to subsidize energy. Korea's semiconductor exports <span class="data-pill up">+151.4% YoY</span>; trade surplus widened to <span class="data-pill up">$25.7B</span> in March.<br>
-        <strong>Vulnerable:</strong> India, Philippines, Thailand — face acute stagflation risks, current account deficits, immediate gas rationing.`,
+        color: "#4d7c0f",
+        content: `<strong>Resilient:</strong> Taiwan, Korea, Singapore — buffering via semiconductor boom and deep fiscal pockets. Korea semiconductor exports <span class="data-pill up">+151.4% YoY</span>; trade surplus widened to <span class="data-pill up">$25.7B</span>.<br>
+        <strong>Vulnerable:</strong> India, Philippines, Thailand — acute stagflation risks, current account deficits, immediate gas rationing.`,
       },
       {
         label: "Growth Downgrades",
         color: "#65a30d",
-        content: `2026 growth slashed by <span class="data-pill down">>0.5pp</span> for India (→ 5.9–6.5%), Philippines, Thailand, and Singapore. Korea GDP cut to <span class="data-pill warn">2.0–2.2%</span>; Korea CPI revised up to <span class="data-pill down">2.4–2.6%</span>. Korea emergency KTB buyback announced to stabilize bond market. Japan Shunto wages +5.26% but BoJ April rate hike unlikely — June more probable.`,
+        content: `2026 growth slashed by <span class="data-pill down">>0.5pp</span> for India (→ 5.9–6.5%), Philippines, Thailand, Singapore. Korea GDP cut to <span class="data-pill warn">2.0–2.2%</span>; Korea CPI revised to <span class="data-pill down">2.4–2.6%</span>. Japan: Shunto wages +5.26% but BoJ April rate hike unlikely — June more probable.`,
       },
       {
         label: "Policy Responses",
-        color: "#a3e635",
-        content: `Korea: KRW 25trn supplementary budget + fuel tax cuts. Taiwan: rethinking energy policy amid power grid stress. India: government cut fuel excise duty and export taxes. Philippines BSP: off-cycle rate hold — shifting stance. Singapore MAS: slope steepening expected at upcoming meeting. Australia RBA: hiked preemptively into the supply shock.`,
+        color: "#84cc16",
+        content: `Korea: KRW 25trn supplementary budget + fuel tax cuts + emergency KTB buyback. Taiwan: rethinking energy policy amid power grid stress. India: government cut fuel excise duty and export taxes. Philippines BSP: off-cycle rate hold. Singapore MAS: slope steepening expected. Australia RBA: hiked preemptively into supply shock.`,
       },
     ],
   },
   {
     id: "us-econ",
     icon: "🇺🇸",
-    color: "#f97316",
+    color: "#c2410c",
+    bg: "#fff7ed",
+    border: "#fed7aa",
     title: "US Economics / Consumer",
     tagline: "GDP → 2.1% · NFP +60K · K-shaped divergence deepens",
     subthemes: [
       {
         label: "Consumer Under Pressure",
-        color: "#f97316",
-        content: `US consumers face a <strong>K-shaped divergence</strong>. Fiscal tailwinds from tax refunds are completely offset by the energy shock, which acts as a direct tax on low- and middle-income purchasing power. Real consumption growth revised down <span class="data-pill down">30bp</span> to <span class="data-pill">1.7% (Q4/Q4)</span>. Consumer sentiment dropped sharply across all income groups post-Iran War onset.`,
+        color: "#c2410c",
+        content: `US consumers face a <strong>K-shaped divergence</strong>. Fiscal tailwinds from tax refunds completely offset by the energy shock — a direct tax on low- and middle-income purchasing power. Real consumption growth revised down <span class="data-pill down">30bp</span> to <span class="data-pill">1.7% (Q4/Q4)</span>. Consumer sentiment dropped sharply across all income groups post-Iran War.`,
       },
       {
         label: "Key Data & Forecasts",
         color: "#ea580c",
-        content: `<span class="data-pill warn">US GDP 2026 → 2.1%</span> (Q4/Q4, revised down)<br>
-        <span class="data-pill warn">March NFP → +60K to +75K</span> (artificially boosted by ~32K returning strikers + ~20K weather effect; underlying pace ~30K/month)<br>
-        <span class="data-pill">Unemployment → 4.4%</span> (risk of uptick to 4.5%)<br>
+        content: `<span class="data-pill warn">US GDP 2026 → 2.1%</span> (Q4/Q4)<br>
+        <span class="data-pill warn">March NFP → +60K to +75K</span> (boosted by ~32K returning strikers + ~20K weather; underlying ~30K/month)<br>
+        <span class="data-pill">Unemployment → 4.4%</span> (risk of 4.5%)<br>
         <span class="data-pill up">Feb Retail Sales → +0.6% MoM</span> headline (auto-driven, price-inflated, not volume)`,
       },
       {
         label: "Labor & Activity",
-        color: "#fb923c",
-        content: `Initial jobless claims remain low and stable — labor market resilience providing a cushion. Kansas City Fed manufacturing survey strong. S&P US Manufacturing PMI accelerated to <span class="data-pill up">52.4</span>; ISM Manufacturing rose to <span class="data-pill up">52.7</span> (though ISM beat was heavily driven by slower supplier deliveries). ADP employment somewhat above expectations but normalization trend intact.`,
+        color: "#f97316",
+        content: `Initial jobless claims remain low and stable. S&P US Manufacturing PMI accelerated to <span class="data-pill up">52.4</span>; ISM Manufacturing rose to <span class="data-pill up">52.7</span> (though ISM beat was heavily driven by slower supplier deliveries — a potential distortion). Kansas City Fed corroborated strength in production, orders, and prices.`,
       },
     ],
   },
   {
     id: "inflation",
     icon: "🔥",
-    color: "#8b5cf6",
+    color: "#6d28d9",
+    bg: "#f5f3ff",
+    border: "#ddd6fe",
     title: "Inflation",
     tagline: "US CPI → 3.3–3.4% · Euro area → 2.8–3.1% · EM sharply higher",
     subthemes: [
       {
         label: "US Inflation Dynamics",
-        color: "#8b5cf6",
-        content: `Headline inflation surging on oil and gas shortage; core services remain relatively muted for now. <span class="data-pill down">2026 US Headline CPI → 3.3–3.4%</span> (Q4/Q4). <span class="data-pill warn">Core PCE → 2.5%</span>. 1-year inflation expectations in University of Michigan survey jumped from 3.4% to <span class="data-pill down">3.8%</span> immediately post-Iran War onset. Will gas price surge eat the tax cuts? Analysts say: yes, mostly.`,
+        color: "#6d28d9",
+        content: `Headline surging on oil and gas shortage; core services relatively muted for now. <span class="data-pill down">2026 US Headline CPI → 3.3–3.4%</span> (Q4/Q4). <span class="data-pill warn">Core PCE → 2.5%</span>. 1-year inflation expectations (U Michigan) jumped from 3.4% to <span class="data-pill down">3.8%</span> immediately post-Iran War. Will gas price surge eat the tax cuts? Analysts say: yes, mostly.`,
       },
       {
         label: "Euro Area & Global",
         color: "#7c3aed",
         content: `GS raised end-2026 inflation forecasts:<br>
-        <span class="data-pill down">Euro area → +1.4pp → 2.8–3.1%</span> headline<br>
+        <span class="data-pill down">Euro area → +1.4pp → 2.8–3.1%</span><br>
         <span class="data-pill down">Japan → +1.1pp</span><br>
         <span class="data-pill down">US → +1.0pp</span><br>
-        Euro area HICP projected to jump from 1.9% to 2.5% near-term. Sequential trimmed core in Euro area ticked up to 2.9% annualized m/m. UK rates facing renewed yield concerns as BoE hike expectations build.`,
+        Euro area HICP projected to jump 1.9% → 2.5% near-term. Sequential trimmed core up to 2.9% annualized m/m. UK rates facing renewed yield concerns as BoE hike expectations build.`,
       },
       {
         label: "EM Inflation Spikes",
-        color: "#a855f7",
-        content: `Latin American and CEEMEA inflation forecasts revised broadly higher:<br>
+        color: "#8b5cf6",
+        content: `LatAm and CEEMEA inflation revised broadly higher:<br>
         <span class="data-pill down">Argentina → +4.9pp</span><br>
         <span class="data-pill down">Türkiye → +3.7pp</span><br>
-        Korea CPI revised to 2.4–2.6% with gasoline price impact amplified by fuel tax caps. Singapore core CPI uptick setting stage for MAS slope steepening. China PPI: deflation ending — oil shock lifting upstream prices to highest since March 2022.`,
+        Korea CPI 2.4–2.6% with gasoline caps amplifying pass-through. Singapore core CPI uptick setting stage for MAS slope steepening. China PPI: deflation ending — oil shock lifting upstream prices to highest since March 2022.`,
       },
     ],
   },
 ];
 
-// ── Mind Map SVG ────────────────────────────────────────────────────────────
+// ── Mind Map SVG ─────────────────────────────────────────────────────────────
 function buildMindMap() {
   const svg = document.getElementById('mindmap-svg');
-  const W = 1200, H = 480;
+  const W = 1200, H = 460;
   const cx = W / 2, cy = H / 2;
-  const r_center = 54;
-  const r_node = 38;
-  const orbit = 185;
+  const r_center = 52;
+  const r_node = 36;
+  const orbit = 180;
 
-  // Background glow
   svg.innerHTML = `
     <defs>
       <radialGradient id="centerglow" cx="50%" cy="50%" r="50%">
-        <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.18"/>
-        <stop offset="100%" stop-color="#f59e0b" stop-opacity="0"/>
+        <stop offset="0%" stop-color="#d97706" stop-opacity="0.12"/>
+        <stop offset="100%" stop-color="#d97706" stop-opacity="0"/>
       </radialGradient>
-      <filter id="glow">
-        <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
-        <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
-      </filter>
     </defs>
-    <ellipse cx="${cx}" cy="${cy}" rx="160" ry="100" fill="url(#centerglow)"/>
+    <rect width="${W}" height="${H}" fill="#ffffff"/>
+    <ellipse cx="${cx}" cy="${cy}" rx="155" ry="95" fill="url(#centerglow)"/>
   `;
 
   const n = BRANCHES.length;
@@ -656,55 +664,60 @@ function buildMindMap() {
     const nx = cx + orbit * Math.cos(angle);
     const ny = cy + orbit * Math.sin(angle);
 
-    // Connector line
+    // Connector
     const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
     line.setAttribute('x1', cx); line.setAttribute('y1', cy);
     line.setAttribute('x2', nx); line.setAttribute('y2', ny);
     line.setAttribute('stroke', b.color);
     line.setAttribute('stroke-width', '1.5');
-    line.setAttribute('stroke-opacity', '0.4');
-    line.setAttribute('stroke-dasharray', '4 3');
+    line.setAttribute('stroke-opacity', '0.35');
+    line.setAttribute('stroke-dasharray', '5 4');
     svg.appendChild(line);
 
-    // Node circle
+    // Node group
     const g = document.createElementNS('http://www.w3.org/2000/svg', 'g');
     g.style.cursor = 'pointer';
     g.addEventListener('click', () => {
       document.getElementById('branch-' + b.id).scrollIntoView({ behavior: 'smooth', block: 'center' });
-      toggleCard(b.id);
+      const card = document.getElementById('branch-' + b.id);
+      if (!card.classList.contains('expanded')) toggleCard(b.id);
     });
 
     const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
     circle.setAttribute('cx', nx); circle.setAttribute('cy', ny);
     circle.setAttribute('r', r_node);
-    circle.setAttribute('fill', b.color + '18');
+    circle.setAttribute('fill', b.bg);
     circle.setAttribute('stroke', b.color);
-    circle.setAttribute('stroke-width', '1.5');
-    circle.style.transition = 'r 0.2s';
+    circle.setAttribute('stroke-width', '1.8');
     g.appendChild(circle);
 
     const icon = document.createElementNS('http://www.w3.org/2000/svg', 'text');
-    icon.setAttribute('x', nx); icon.setAttribute('y', ny - 6);
+    icon.setAttribute('x', nx); icon.setAttribute('y', ny - 5);
     icon.setAttribute('text-anchor', 'middle');
     icon.setAttribute('dominant-baseline', 'middle');
-    icon.setAttribute('font-size', '18');
+    icon.setAttribute('font-size', '17');
     icon.textContent = b.icon;
     g.appendChild(icon);
 
     const label = document.createElementNS('http://www.w3.org/2000/svg', 'text');
     label.setAttribute('x', nx); label.setAttribute('y', ny + 13);
     label.setAttribute('text-anchor', 'middle');
-    label.setAttribute('font-size', '9');
+    label.setAttribute('font-size', '8.5');
     label.setAttribute('fill', b.color);
     label.setAttribute('font-weight', '700');
     label.setAttribute('letter-spacing', '0.04em');
-    // Shorten title for SVG
-    const short = b.title.split(' ').slice(0, 2).join(' ');
-    label.textContent = short.toUpperCase();
+    label.textContent = b.title.split(' ').slice(0,2).join(' ').toUpperCase();
     g.appendChild(label);
 
-    g.addEventListener('mouseenter', () => { circle.setAttribute('r', r_node + 4); circle.setAttribute('fill', b.color + '30'); });
-    g.addEventListener('mouseleave', () => { circle.setAttribute('r', r_node); circle.setAttribute('fill', b.color + '18'); });
+    g.addEventListener('mouseenter', () => {
+      circle.setAttribute('r', String(r_node + 4));
+      circle.setAttribute('stroke-width', '2.5');
+    });
+    g.addEventListener('mouseleave', () => {
+      circle.setAttribute('r', String(r_node));
+      circle.setAttribute('stroke-width', '1.8');
+    });
+
     svg.appendChild(g);
   });
 
@@ -712,30 +725,30 @@ function buildMindMap() {
   const cg = document.createElementNS('http://www.w3.org/2000/svg', 'g');
   const cc = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
   cc.setAttribute('cx', cx); cc.setAttribute('cy', cy); cc.setAttribute('r', r_center);
-  cc.setAttribute('fill', '#f59e0b22'); cc.setAttribute('stroke', '#f59e0b'); cc.setAttribute('stroke-width', '2');
+  cc.setAttribute('fill', '#fffbeb'); cc.setAttribute('stroke', '#d97706'); cc.setAttribute('stroke-width', '2');
   cg.appendChild(cc);
   const ct = document.createElementNS('http://www.w3.org/2000/svg', 'text');
-  ct.setAttribute('x', cx); ct.setAttribute('y', cy - 8);
+  ct.setAttribute('x', cx); ct.setAttribute('y', cy - 9);
   ct.setAttribute('text-anchor', 'middle'); ct.setAttribute('dominant-baseline', 'middle');
-  ct.setAttribute('font-size', '22'); ct.textContent = '🌐';
+  ct.setAttribute('font-size', '20'); ct.textContent = '🌐';
   cg.appendChild(ct);
   const cl = document.createElementNS('http://www.w3.org/2000/svg', 'text');
   cl.setAttribute('x', cx); cl.setAttribute('y', cy + 14);
-  cl.setAttribute('text-anchor', 'middle'); cl.setAttribute('font-size', '8.5');
-  cl.setAttribute('fill', '#f59e0b'); cl.setAttribute('font-weight', '700'); cl.setAttribute('letter-spacing', '0.06em');
+  cl.setAttribute('text-anchor', 'middle'); cl.setAttribute('font-size', '8');
+  cl.setAttribute('fill', '#b45309'); cl.setAttribute('font-weight', '800'); cl.setAttribute('letter-spacing', '0.07em');
   cl.textContent = 'HORMUZ SHOCK';
   cg.appendChild(cl);
   svg.appendChild(cg);
 }
 
-// ── Branch Cards ─────────────────────────────────────────────────────────────
+// ── Branch Cards ──────────────────────────────────────────────────────────────
 function buildCards() {
   const grid = document.getElementById('branches');
   BRANCHES.forEach(b => {
     const card = document.createElement('div');
     card.className = 'branch-card';
     card.id = 'branch-' + b.id;
-    card.style.borderColor = b.color + '40';
+    card.style.borderColor = b.border;
 
     let subthtml = '';
     b.subthemes.forEach(s => {
@@ -745,7 +758,7 @@ function buildCards() {
           ${s.trades.map(t => `<div class="trade-item">${t}</div>`).join('')}
         </div>` : '';
       subthtml += `
-        <div class="subtheme" style="border-left-color:${s.color}">
+        <div class="subtheme" style="border-left-color:${s.color};background:${b.bg}">
           <div class="subtheme-title" style="color:${s.color}">${s.label}</div>
           <div class="subtheme-content">${s.content}${tradeBlock}</div>
         </div>`;
@@ -753,7 +766,7 @@ function buildCards() {
 
     card.innerHTML = `
       <div class="branch-header" onclick="toggleCard('${b.id}')">
-        <div class="branch-icon" style="background:${b.color}18;border:1px solid ${b.color}40">${b.icon}</div>
+        <div class="branch-icon" style="background:${b.bg};border:1.5px solid ${b.border}">${b.icon}</div>
         <div class="branch-title-wrap">
           <div class="branch-title" style="color:${b.color}">${b.title}</div>
           <div class="branch-tagline">${b.tagline}</div>
@@ -767,8 +780,7 @@ function buildCards() {
 }
 
 function toggleCard(id) {
-  const card = document.getElementById('branch-' + id);
-  card.classList.toggle('expanded');
+  document.getElementById('branch-' + id).classList.toggle('expanded');
 }
 
 buildMindMap();
